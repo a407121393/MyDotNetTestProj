@@ -11,6 +11,7 @@ namespace TestCallContext
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             TestIThread ttttt = new TestIThread();
