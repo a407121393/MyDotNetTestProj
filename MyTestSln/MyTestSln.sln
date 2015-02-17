@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCommonTest", "WebCommonT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDynamicCompiler", "MyDynamicCompiler\MyDynamicCompiler.csproj", "{C3783CD7-048D-48B4-87CB-52F540625945}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestVirt", "TestVirt\TestVirt.csproj", "{C6CF8DB8-171E-47AC-99ED-67B80AEDACD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C3783CD7-048D-48B4-87CB-52F540625945}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3783CD7-048D-48B4-87CB-52F540625945}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3783CD7-048D-48B4-87CB-52F540625945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6CF8DB8-171E-47AC-99ED-67B80AEDACD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6CF8DB8-171E-47AC-99ED-67B80AEDACD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6CF8DB8-171E-47AC-99ED-67B80AEDACD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6CF8DB8-171E-47AC-99ED-67B80AEDACD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
