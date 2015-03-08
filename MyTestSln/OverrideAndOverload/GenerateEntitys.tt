@@ -1,0 +1,59 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+using System;
+
+namespace MyProject.Entities
+
+{     
+
+      <#
+
+           string connectionString = @"data source=PC201408162308\FangSql2;Integrated Security=SSPI;Initial Catalog=BookDistribution;";
+
+           SqlConnection conn = new SqlConnection(connectionString);
+
+           conn.Open();
+
+           System.Data.DataTable schema = conn.GetSchema("TABLES");
+
+           string selectQuery = "select * from @tableName";
+
+           SqlCommand command = new SqlCommand(selectQuery,conn);
+
+           SqlDataAdapter ad = new SqlDataAdapter(command);
+
+           System.Data.DataSet ds = new DataSet();        
+
+           foreach(System.Data.DataRow row in schema.Rows)
+
+           {  #>  
+
+           public class <#= row["TABLE_NAME"].ToString().Trim('s') #>                   
+
+           {    <#                     
+
+                   ds.Tables.Clear();
+
+                  command.CommandText = selectQuery.Replace("@tableName",row["TABLE_NAME"].ToString());
+
+                  ad.FillSchema(ds, SchemaType.Mapped, row["TABLE_NAME"].ToString());         
+
+                  foreach (DataColumn dc in ds.Tables[0].Columns)
+
+                  {    #>      
+                  public <#= dc.DataType.Name #> <#= dc.ColumnName #> { get; set; }                                           
+
+              <# }  #>         
+
+           }                  
+
+           <# 
+
+           } #>                
+
+}
