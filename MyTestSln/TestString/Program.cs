@@ -93,15 +93,36 @@ namespace TestString
         //    Console.ReadKey();
         //}
 
-        private static string s = "abc";
+        //private static string s = "abc";
+        //static void Main(string[] args)
+        //{
+        //    string s2 = "ab";
+        //    s2 += "c";
+
+        //    Console.WriteLine(string.IsInterned(s2) ?? null);
+
+        //    Console.ReadKey();
+        //}
+
         static void Main(string[] args)
         {
-            string s2 = "ab";
-            s2 += "c";
+            for (int i = 0; i < 10000000; i++)
+            {
+                createStr(i);
+            }
 
-            Console.WriteLine(string.IsInterned(s2) ?? null);
+            GC.Collect();
+            GC.WaitForFullGCComplete();
+
+            Console.WriteLine("Done................");
 
             Console.ReadKey();
+        }
+
+        private static void createStr(int i)
+        {
+            string str = string.Intern(i.ToString());
+            //string str = i.ToString();
         }
     }
 }
