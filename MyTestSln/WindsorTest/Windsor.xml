@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<castle>
+  <facilities>
+    <facility id="commonFacility" type="WindsorTest.CommonFacility, WindsorTest" />
+  </facilities>
+  <components>
+    <component
+     id="fly"
+     service="WindsorTest.IFly, WindsorTest"
+     type="WindsorTest.Fly, WindsorTest">
+      <parameters>
+        <name>Felix Zhang</name>
+        <shot>${shot}</shot>
+      </parameters>
+    </component>
+
+
+    <component
+     id="shot"
+     service="WindsorTest.IShot, WindsorTest"
+     type="WindsorTest.Shot, WindsorTest" />
+    <component
+     id="flyInterceptor"
+     service="Castle.DynamicProxy.IInterceptor, Castle.Core"
+     type="WindsorTest.FlyInterceptor, WindsorTest" />
+  </components>
+</castle>
